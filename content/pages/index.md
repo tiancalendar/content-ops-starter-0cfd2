@@ -9,8 +9,6 @@ sections:
       type: TitleBlock
     subtitle: calendar
     text: >+
-
-
       <table>
 
       <tr>
@@ -20,7 +18,6 @@ sections:
 
       <th><textarea rows="2" cols="10" style="font-size: 12pt"
       id="myText"></textarea></th>
-
 
 
       </tr>
@@ -36,13 +33,6 @@ sections:
       </textarea></th>
 
 
-      </tr>
-
-      <table>
-
-      </body>
-
-      </html>
 
     actions:
       - label: Get started
