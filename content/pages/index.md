@@ -74,7 +74,7 @@ sections:
           - pr-16
   - type: FeaturedItemsSection
     title:
-      text: Key Benefits
+      text: Calendar day
       color: text-dark
       styles:
         self:
