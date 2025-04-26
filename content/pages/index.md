@@ -10,11 +10,49 @@ sections:
           textAlign: center
       type: TitleBlock
     subtitle: calendar summary
-    text: |-
-      Aenean eros ipsum, interdum quis dignissim non, sollicitudin vitae nisl.
-      Aenean vel aliquet elit, at blandit ipsum. Sed eleifend felis sit amet
-      erat molestie, hendrerit malesuada justo ultrices. Nunc volutpat at erat
-      vitae interdum. Ut nec massa eget lorem blandit condimentum et at risus.
+    text: >+
+      <table>
+
+      <tr>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+
+      </tr>
+
+      <tr>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+
+      </tr>
+
+      <table>
+
     media:
       title: Title of the video
       url: /images/placeholder-video.mp4
