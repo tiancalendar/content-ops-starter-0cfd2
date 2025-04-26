@@ -8,7 +8,49 @@ sections:
       color: text-dark
       type: TitleBlock
     subtitle: calendar
-    text: "<!DOCTYPE html>\n\n<html>\n<head>\n<title>Calendar Month</title>\n</head>\n<body>\n<head>\n<style>\n \tbody {\n   /\\* diameter of the circle \\*/\n   \\--d: 2px; \n\nbackground : radial-gradient(\ncircle at\nvar(--d)\nvar(--d),\n\n     #D3d3d3 calc(var(--d) - 1px), \n     #D3d3d3 var(--d)\n\n)\n0 0 / 33px 33px;\n}\n\n        body {\n    font-family: Arial, sans-serif;\n\n}\n\n\\#calendar {\nwidth: 100%;\nmax-width: 300px;\nmargin: 0 auto;\n}\n\n\\#calendar-header {\ndisplay: flex;\njustify-content: space-between;\nalign-items: center;\npadding: 1px;\nbackground-color: #808080;\ncolor: #fff;\n}\n\\#days {\ndisplay: flex;\njustify-content: space-between;\npadding: 1px;\nbackground-color: #808080;\ncolor: #fff;\ntext-align: center ;\nborder: 1px solid gray;\n}\n\n\\#calendar-body {\ndisplay: grid;\ngrid-template-columns: repeat(7, 1fr);\ngap: 1px;\nbackground-color: #808080;\ntransition: opacity 0.5s ease;\nopacity: 1;\n}\n\n\\#calendar-body.fade-out {\nopacity: 0;\n}\n\n\\#calendar-body div {\npadding: 3px;\nbackground-color: #fff;\ntext-align: center;\n}\n\\#calendar-body div.today {\nbackground-color: #FFFF00;\ncolor: #808080;\n}\n\n.change-month {\ncursor: pointer;\n}\n\n    </style>\n\n</head>\n<body>\n\n    <div id=\"calendar\"> <div id=\"calendar-header\"> <span id=\"month-prev\" class=\"change-month\"><</span> <h1 id=\"month\"></h1> <span id=\"month-next\" class=\"change-month\">></span> </div> \n    <div id=\"days\"></div>\n\n    <div id=\"calendar-body\">\n\n\n    </div>\n\n\n\n     </div>\n        \n    <script>\n    let date = new Date();\n\nfunction renderCalendar() {\ndate.setDate(1);\n\n    const monthDays = document.getElementById('calendar-body');\n    const month = document.getElementById('month');\n    const daysElement = document.getElementById('days');\n\n    const lastDay = new Date(\n        date.getFullYear(),\n        date.getMonth() + 1,\n        0\n    ).getDate();\n\n    const prevLastDay = new Date(\n        date.getFullYear(),\n        date.getMonth(),\n        0\n    ).getDate();\n\n    const firstDayIndex = date.getDay();\n\n    const lastDayIndex = new Date(\n        date.getFullYear(),\n        date.getMonth() + 1,\n        0\n    ).getDay();\n\n    const nextDays = 7 - lastDayIndex - 1;\n\n    const months = [\n        'January',\n        'February',\n        'March',\n        'April',\n        'May',\n        'June',\n        'July',\n        'August',\n        'September',\n        'October',\n        'November',\n        'December'\n    ];\n\n    const days = [\n        'S',\n        'M',\n        'T',\n        'W',\n        'T',\n        'F',\n        'S'\n    ];\n\n    month.innerText = `${months[date.getMonth()]} ${date.getFullYear()}`;\n    daysElement.innerHTML = days.map(day => `<div>${day}</div>`).join('');\n\n    let dates = '';\n\n    for (let x = firstDayIndex; x > 0; x--) {\n        dates += `<div class='prev-date'>${prevLastDay - x + 1}</div>`;\n    }\n\n    for (let i = 1; i <= lastDay; i++) {\n        if (\n            i === new Date().getDate() &&\n            date.getMonth() === new Date().getMonth() &&\n            date.getFullYear() === new Date().getFullYear()\n        ) {\n            dates += `<div class='today'>${i}</div>`;\n        } else {\n            dates += `<div>${i}</div>`;\n        }\n    }\n\n    for (let j = 1; j <= nextDays; j++) {\n        dates += `<div class='next-date'>${j}</div>`;\n    }\n    monthDays.innerHTML = dates;\n\n}\n\ndocument.getElementById('month-prev').addEventListener('click', () => {\ndocument.getElementById('calendar-body').classList.add('fade-out');\nsetTimeout(() => {\ndate.setMonth(date.getMonth() - 1);\nrenderCalendar();\ndocument.getElementById('calendar-body').classList.remove('fade-out');\n}, 500);\n});\n\ndocument.getElementById('month-next').addEventListener('click', () => {\ndocument.getElementById('calendar-body').classList.add('fade-out');\nsetTimeout(() => {\ndate.setMonth(date.getMonth() + 1);\nrenderCalendar();\ndocument.getElementById('calendar-body').classList.remove('fade-out');\n}, 500);\n});\n\nrenderCalendar();\n\n```\n </script>\n \n```\n\n<p style=\"font-family:times new roman\" Font= 14px>This is a weekly calendar of a month   .</p>   \n\n<style>\ntable {\n  font-family: times new roman;\n  border-collapse: solid;\n  width: 100%;\n}\n\ntd, th {\n  border: 1px solid #87cefa ;\n  text-align: left;\n  padding: 2px;\n}\n</style>\n\n<table>\n<tr>\n<th><textarea rows=\"2\" cols=\"10\" style=\"font-size: 12pt\" id=\"myText\"></textarea></th>\n<th><textarea rows=\"2\" cols=\"10\" style=\"font-size: 12pt\" id=\"myText\"></textarea></th>\n<th><textarea rows=\"2\" cols=\"10\" style=\"font-size: 12pt\" id=\"myText\"></textarea></th>\n<th><textarea rows=\"2\" cols=\"10\" style=\"font-size: 12pt\" id=\"myText\"></textarea></th>\n\n</tr>\n<tr>\n<th><textarea rows=\"23\" cols=\"26\" style=\"font-size: 16pt\" id=\"myText\">\n</textarea></th>\n<th><textarea rows=\"23\" cols=\"26\" style=\"font-size: 16pt\" id=\"myText\">\n</textarea></th>\n<th><textarea rows=\"23\" cols=\"26\" style=\"font-size: 16pt\" id=\"myText\">\n</textarea></th>\n<th><textarea rows=\"23\" cols=\"26\" style=\"font-size: 16pt\" id=\"myText\">\n</textarea></th>\n\n</tr>\n<table>\n</body>\n</html>\n\n"
+    text: >+
+      <!DOCTYPE html>
+
+
+      <table>
+
+      <tr>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+      <th><textarea rows="2" cols="10" style="font-size: 12pt"
+      id="myText"></textarea></th>
+
+
+      </tr>
+
+      <tr>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+      <th><textarea rows="23" cols="26" style="font-size: 16pt" id="myText">
+
+      </textarea></th>
+
+
+
+      </tr>
+
+      <table>
+
+      </body>
+
+      </html>
+
     actions:
       - label: Get started
         altText: ''
